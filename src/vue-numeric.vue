@@ -179,6 +179,15 @@ export default {
       default: 'prefix',
       required: false
     },
+    
+    /**
+     * Strip insignificant zeros from decimal part
+     */
+    stripZeros: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
 
   data: () => ({
@@ -330,7 +339,8 @@ export default {
           format: '%v',
           thousand: '',
           decimal: this.decimalSeparatorSymbol,
-          precision: Number(this.precision)
+          precision: Number(this.precision),
+          stripZeros: this.stripZeros,
         })
       }
     },
@@ -378,7 +388,8 @@ export default {
         format: this.symbolPosition,
         precision: Number(this.precision),
         decimal: this.decimalSeparatorSymbol,
-        thousand: this.thousandSeparatorSymbol
+        thousand: this.thousandSeparatorSymbol,
+        stripZeros: this.stripZeros,
       })
     },
 
